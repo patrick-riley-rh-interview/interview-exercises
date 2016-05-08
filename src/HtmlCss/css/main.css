@@ -1,0 +1,47 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  background-color: #F6F6F6;
+  overflow: hidden;
+}
+.open-shift-container .col {
+  padding: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+}
+.open-shift-panel {
+  position: absolute;
+  width: 100%;
+  height: 159px;
+  top: 180px;
+  border-radius: 0;
+}
+.open-shift-panel .panel-heading {
+  background-color: #CC0000;
+  color: #FEFEFE;
+  border-radius: 0;
+}
+.open-shift-panel .panel-heading .badge {
+  float: right;
+  background-color: #6F0000;
+  border-radius: 0;
+  width: 25px;
+  color: #FEFEFE;
+}
+.gradient-pattern {
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  margin: 20px;
+  background: -moz-radial-gradient(#B2B2B2 1%, transparent 16%), -moz-radial-gradient(#B2B2B2 1%, transparent 16%), #F6F6F6;
+  background: -webkit-radial-gradient(#B2B2B2 1%, transparent 16%), -webkit-radial-gradient(#B2B2B2 1%, transparent 16%), #F6F6F6;
+  background-position: 0px 0px;
+  background-size: 20px 20px;
+  background-origin: padding-box;
+  background-clip: content-box;
+  background-repeat: initial;
+  padding: 0;
+}

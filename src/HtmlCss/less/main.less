@@ -1,0 +1,65 @@
+@import (reference) 'src/bower_components/bootstrap/less/variables.less';
+@import (reference) 'src/bower_components/bootstrap/less/mixins/center-block.less';
+
+//Bootstrap variable overrides
+@body-bg: #F6F6F6;
+
+//Custom variables
+@bg-repeat: 20px;
+@bg-repeat-offset: @bg-repeat * 2;
+@box-offset-top : 200px - @bg-repeat;
+@rh-red: #CC0000;
+@rh-white: #FEFEFE;
+@rh-badge-bg: #6F0000;
+
+html, body {
+  width:100%;
+  height:100%;
+  min-height:100%;
+  background-color:@body-bg;
+  overflow:hidden;
+}
+
+.open-shift-container .col {
+  padding: 0;
+  .center-block();
+  float:none;
+}
+
+.open-shift-panel {
+  position: absolute;
+  width:100%;
+  height: 159px;
+  top: @box-offset-top;
+  border-radius: 0;
+}
+
+.open-shift-panel .panel-heading {
+  background-color: @rh-red;
+  color: @rh-white;
+  border-radius:0;
+}
+
+.open-shift-panel .panel-heading .badge {
+  float:right;
+  background-color: @rh-badge-bg;
+  border-radius:0;
+  width:25px;
+  color:@rh-white;
+}
+
+.gradient-pattern {
+  width:~"calc(100% - @{bg-repeat-offset})";
+  height:~"calc(100% - @{bg-repeat-offset})";
+  margin:@bg-repeat;
+  background: -moz-radial-gradient(#B2B2B2 1%, transparent 16%),
+    -moz-radial-gradient(#B2B2B2 1%, transparent 16%), @body-bg;
+  background: -webkit-radial-gradient(#B2B2B2 1%, transparent 16%),
+    -webkit-radial-gradient(#B2B2B2 1%, transparent 16%), @body-bg;
+  background-position: 0px 0px;
+  background-size: @bg-repeat @bg-repeat;
+  background-origin: padding-box;
+  background-clip: content-box;
+  background-repeat: initial;
+  padding: 0;
+}

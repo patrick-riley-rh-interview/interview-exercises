@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+    <title>Patrick Riley - Jquery Exercise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+<body lang="en-US" ng-app="es5">
+    <div class="row">
+        <div class="col-xs-5 col-xs-offset-1">
+            <h2><small>Jquery Exercise</small></h2>
+            <div class="form-group text-area">
+                <textarea class="form-control" id="myTextArea" rows="10"></textarea>
+                <label class="control-label" for="myTextArea">Remaining Chars: <span>100</span></label>
+            </div>
+        </div>
+    </div>
+    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script>
+        var formGroup = $('.form-group.text-area');
+        var textArea = $('.form-group.text-area textarea');
+        var label = $('.form-group .control-label span');
+        var maxLength = 100;
+
+        textArea.on('keydown', function(ev){
+            //allow delete/backspace
+            var key = ev.keyCode || ev.charCode;
+            if( key == 8 || key == 46 ){
+                return;
+            }
+            if(textArea.val().length === maxLength) {
+                ev.preventDefault();
+            }
+        });
+
+        textArea.bind('paste', function(ev){
+            var pasted = ev.originalEvent.clipboardData.getData('text');
+
+            if(pasted && (textArea.val().length + pasted.length) > maxLength) {
+                ev.preventDefault();
+            }
+        });
+
+        textArea.on('change keyup', function(){
+            var length = textArea.val().length;
+            label.text(maxLength - length);
+
+            if(length >= (maxLength - 5)){
+                formGroup.addClass('has-error');
+            } else {
+                formGroup.removeClass('has-error');
+            }
+        });
+    </script>
+</body>
+</html>
