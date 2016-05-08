@@ -9,7 +9,7 @@ var notify      = require("gulp-notify");
 var path        = require('path');
 var reload      = browserSync.reload;
 
-gulp.task('serve', ['less'], function () {
+gulp.task('serve', function () {
 	browserSync({
 		server: './src'
 	});
